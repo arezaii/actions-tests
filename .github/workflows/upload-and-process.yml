@@ -1,0 +1,30 @@
+name: Upload and Process File
+
+on:
+  workflow_dispatch:
+    inputs:
+      base64_file:
+        description: 'Base64-encoded tar.gz file'
+        required: true
+
+jobs:
+  process-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Decode and save file
+      run: |
+        echo "${{ github.event.inputs.base64_file }}" | base64 -d > file.tar.gz
+
+    - name: Extract file
+      run: |
+        tar -xzvf file.tar.gz
+
+    - name: Process file
+      run: |
+        echo "Processing file..."
+        cd file/doc/html
+        cat index.html
