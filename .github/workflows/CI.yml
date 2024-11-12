@@ -10,13 +10,13 @@ jobs:
   make_doc:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v4
     - name: make docs
       run: |
         mkdir -p doc/html
         echo "<html><body><h1>$GITHUB_SHA Documentation Demo</h1></body></html>" > doc/html/index.html
     - name: upload docs
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v4
       with:
         name: documentation
         path: doc/html
