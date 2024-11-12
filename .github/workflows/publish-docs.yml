@@ -37,7 +37,7 @@ jobs:
       - name: Publish docs
         run: |
           echo "Publishing docs"
-          ls -l documentation
+          ls -l
           # Stuff to push docs to a web server
           # maybe using rsync
           # rsync -avz documentation/doc/html/ user@server:/path/to/docs
