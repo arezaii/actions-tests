@@ -26,5 +26,5 @@ jobs:
     - name: Process file
       run: |
         echo "Processing file..."
-        cd file/doc/html
+        cd doc/html
         cat index.html
