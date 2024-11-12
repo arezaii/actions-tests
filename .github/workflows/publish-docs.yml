@@ -1,0 +1,27 @@
+name: publish-docs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: documentation
+
+      - name: Publish docs
+        run: |
+          echo "Publishing docs"
+          ls -l documentation
+          # Stuff to push docs to a web server
+          # maybe using rsync
+          # rsync -avz documentation/doc/html/ user@server:/path/to/docs
