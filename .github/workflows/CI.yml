@@ -36,6 +36,7 @@ jobs:
         run: |
           echo "Publishing docs"
           ls -l
+          cat index.html
           # Stuff to push docs to a web server
           # maybe using rsync
           # rsync -avz documentation/doc/html/ user@server:/path/to/docs
